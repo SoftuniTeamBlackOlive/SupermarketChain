@@ -13,6 +13,8 @@
             var dbContext = new SupermarketChainDbContext();
 
             Console.WriteLine(dbContext.Vendors.FirstOrDefault(v => v.Name == "Kamenitza").Name);
+
+            Console.WriteLine(dbContext.Vendors.Find(2).Name);
         }
     }
 }
