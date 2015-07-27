@@ -3,8 +3,36 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{CF13544A-836C-4AC3-9043-52CDFEA2EC4A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{83EA5B0F-A346-445C-B918-706B7481B0D8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{FC794BA3-17E3-4ED5-93DB-4D01EE72689A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupermarketChain.Model", "SupermarketChain.Model\SupermarketChain.Model.csproj", "{E8B2F2DC-72A9-4284-8312-19E807FED12B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupermarketChain.Data.SqlServer", "SupermarketChain.Data.SqlServer\SupermarketChain.Data.SqlServer.csproj", "{A5D6BE14-0932-42AE-8C87-EACA90031F9F}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E8B2F2DC-72A9-4284-8312-19E807FED12B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8B2F2DC-72A9-4284-8312-19E807FED12B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8B2F2DC-72A9-4284-8312-19E807FED12B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8B2F2DC-72A9-4284-8312-19E807FED12B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5D6BE14-0932-42AE-8C87-EACA90031F9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5D6BE14-0932-42AE-8C87-EACA90031F9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5D6BE14-0932-42AE-8C87-EACA90031F9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5D6BE14-0932-42AE-8C87-EACA90031F9F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E8B2F2DC-72A9-4284-8312-19E807FED12B} = {FC794BA3-17E3-4ED5-93DB-4D01EE72689A}
+		{A5D6BE14-0932-42AE-8C87-EACA90031F9F} = {83EA5B0F-A346-445C-B918-706B7481B0D8}
 	EndGlobalSection
 EndGlobal
