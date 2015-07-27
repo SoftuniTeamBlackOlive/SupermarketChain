@@ -8,7 +8,7 @@ namespace SupermarketChain.Data.SqlServer
     using SupermarketChain.Model;
     using SupermarketChain.Data.SqlServer.Migrations;
 
-    public class SupermarketChainDbContext : DbContext
+    public class SupermarketChainDbContext : DbContext, ISupermarketChainDbContext
     {
         public SupermarketChainDbContext()
             : base("SupermarketChainSqlServerConnection")
@@ -16,10 +16,21 @@ namespace SupermarketChain.Data.SqlServer
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<SupermarketChainDbContext, Configuration>());
         }
 
-        public IDbSet<Product> Products { get; set; }
+        public virtual IDbSet<Product> Products { get; set; }
 
-        public IDbSet<Vendor> Vendors { get; set; }
+        public virtual IDbSet<Vendor> Vendors { get; set; }
 
-        public IDbSet<Measure> Measures { get; set; }
+        public virtual IDbSet<Measure> Measures { get; set; }
+
+
+        public new void SaveChanges()
+        {
+            base.SaveChanges();
+        }
+
+        public new IDbSet<TEntity> Set<TEntity>() where TEntity : class
+        {
+            return base.Set<TEntity>();
+        }
     }
 }
