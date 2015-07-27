@@ -1,6 +1,7 @@
 ﻿namespace SupermarketChain.Client.Console
 {
     using System;
+    using System.Linq;
 
     using SupermarketChain.Data.SqlServer;
     using SupermarketChain.Model;
@@ -11,14 +12,7 @@
         {
             var dbContext = new SupermarketChainDbContext();
 
-            dbContext
-                .Vendors
-                .Add(new Vendor
-                {
-                    Name = "Kamenitza"
-                });
-
-            dbContext.SaveChanges();
+            Console.WriteLine(dbContext.Vendors.FirstOrDefault(v => v.Name == "Kamenitza").Name);
         }
     }
 }
