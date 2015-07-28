@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+                <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+                <head>
+                    <meta charset="utf-8" />
+                    <title>Aggregated Sales Report</title>
+                    <style>
+                        table, td {
+                            border: 1px solid black;
+                        }
+                        tr td:nth-child(1) {
+                            width: 250px;
+                        }
+
+                        tr td:nth-child(2) {
+                            width: 150px;
+                            text-align: center;
+                        }
+
+                        tr td:nth-child(3) {
+                            width: 150px;
+                            text-align: center;
+                        }
+
+                        tr td:nth-child(4) {
+                            width: 300px;
+                        }
+
+                        tr td:nth-child(5) {
+                            width: 150px;
+                            text-align: right;
+                        }
+
+                        .dateFormat {
+                            background-color: lightgray;
+                        }
+
+                        tr.DailyReportHeader td {
+                            background-color: grey;
+                            text-align: center;
+                            font-weight: bold;
+                        }
+
+                        tr.subtotal td:nth-child(1) {
+                            text-align: right;            
+                        }
+
+                        tr.subtotal td:nth-child(2) {
+                            font-weight: bold;
+                            text-align: right;            
+                        }
+
+                        tfoot {
+                            background-color: lightblue;
+                        }
+
+                        tfoot td:nth-child(1) {
+                            text-align: right;
+                        }
+
+                        tfoot td:nth-child(2) {
+                            text-align: right;
+                            font-weight: bold;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <table>
+                        <thead>
+                            <tr><th colspan="5">Aggregated Sales Report</th></tr>
+                        </thead>
+                        <tbody><tr><td class="dateFormat" colspan="5">Date: 20-Jul-2014</td></tr><tr class="DailyReportHeader">
+                                        <td>Product</td>
+                                        <td>Quantity</td>
+                                        <td>Unit Price</td>
+                                        <td>Location</td>
+                                        <td>Sum</td>
+                                        </tr>
+<tr class="ProductList">
+<td>Beer “Zagorka”</td>
+<td>37.00 </td>
+<td>1.00</td>
+<td>Supermarket “Bourgas – Plaza”</td>
+<td>37.00</td>
+<tr class="ProductList">
+<td>Vodka “Targovishte”</td>
+<td>14.00 </td>
+<td>8.50</td>
+<td>Supermarket “Bourgas – Plaza”</td>
+<td>119.00</td>
+<tr class="subtotal">
+                        <td colspan="4">Total sum for 20-Jul-2014:</td>
+                        <td colspan="1">156.00</td></tr>
+<tr><td class="dateFormat" colspan="5">Date: 22-Jul-2014</td></tr><tr class="DailyReportHeader">
+                                        <td>Product</td>
+                                        <td>Quantity</td>
+                                        <td>Unit Price</td>
+                                        <td>Location</td>
+                                        <td>Sum</td>
+                                        </tr>
+<tr class="ProductList">
+<td>Beer “Beck’s”</td>
+<td>18.00 </td>
+<td>1.20</td>
+<td>Supermarket “Kaspichan – Center”</td>
+<td>21.60</td>
+<tr class="ProductList">
+<td>Beer “Zagorka”</td>
+<td>90.00 </td>
+<td>0.92</td>
+<td>Supermarket “Kaspichan – Center”</td>
+<td>82.80</td>
+<tr class="ProductList">
+<td>Chocolate “Milka”</td>
+<td>14.00 </td>
+<td>2.90</td>
+<td>Supermarket “Kaspichan – Center”</td>
+<td>40.60</td>
+<tr class="ProductList">
+<td>Vodka “Targovishte”</td>
+<td>12.00 </td>
+<td>7.70</td>
+<td>Supermarket “Plovdiv – Stolipinovo”</td>
+<td>92.40</td>
+<tr class="ProductList">
+<td>Beer “Beck’s”</td>
+<td>60.00 </td>
+<td>1.05</td>
+<td>Supermarket “Plovdiv – Stolipinovo”</td>
+<td>63.00</td>
+<tr class="ProductList">
+<td>Beer “Zagorka”</td>
+<td>230.00 </td>
+<td>0.88</td>
+<td>Supermarket “Plovdiv – Stolipinovo”</td>
+<td>202.40</td>
+<tr class="ProductList">
+<td>Beer “Zagorka”</td>
+<td>230.00 </td>
+<td>0.88</td>
+<td>Supermarket “Plovdiv – Stolipinovo”</td>
+<td>202.40</td>
+<tr class="subtotal">
+                        <td colspan="4">Total sum for 22-Jul-2014:</td>
+                        <td colspan="1">705.20</td></tr>
+</tbody>
+                <tfoot>
+                    <tr>
+                    <td colspan="4">Grand total:</td>
+                    <td colspan="1">861.20</td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </body>
+            </html>

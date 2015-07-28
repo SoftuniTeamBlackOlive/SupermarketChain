@@ -1,15 +1,16 @@
 ﻿namespace SupermarketChain.Client.Console
 {
     using System;
+    using System.Globalization;
     using System.Linq;
 
     using SupermarketChain.Model;
     using SupermarketChain.Data.SqlServer;
     using SupermarketChain.Data.SqlServer.Repositories;
 
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             // Testing SupermarketChainDbContext
             var dbContext = new SupermarketChainDbContext();
@@ -26,6 +27,8 @@
             var data = new SupermarketChainData();
             Console.WriteLine(data.Vendors.All().FirstOrDefault(v => v.Name == "Zagorka").Name);
             Console.WriteLine(data.Supermarkets.All().FirstOrDefault(v => v.Name == "Supermarket “Bourgas – Plaza”").Name);
+
+            PDFReportGenerator.GeneratePdfReport(DateTime.ParseExact("20-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture), DateTime.ParseExact("23-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture), data);
         }
     }
 }

@@ -1,7 +1,16 @@
 ﻿namespace SupermarketChain.Model
 {
+    using System.Collections.Generic;
+
     public class Product
     {
+        private ICollection<Sale> sales;
+
+        public Product()
+        {
+            this.sales = new HashSet<Sale>();
+        }
+
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -15,5 +24,11 @@
         public virtual Measure Measure { get; set; }
 
         public int MeasureId { get; set; }
+
+        public virtual ICollection<Sale> Sales
+        {
+            get { return this.sales; }
+            set { this.sales = value; }
+        }
     }
 }

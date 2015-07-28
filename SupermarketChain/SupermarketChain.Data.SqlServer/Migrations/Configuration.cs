@@ -180,15 +180,6 @@ namespace SupermarketChain.Data.SqlServer.Migrations
                     new Sale
                         {
                             ProductName = "Beer “Zagorka”",
-                            Date = DateTime.ParseExact("22-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture),
-                            Quantity = 230,
-                            UnitPrice = 0.88m,
-                            Sum = 202.40m,
-                            SupermarketName = "Supermarket “Plovdiv – Stolipinovo”" 
-                        },
-                    new Sale
-                        {
-                            ProductName = "Beer “Zagorka”",
                             Date = DateTime.ParseExact("20-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture),
                             Quantity = 37,
                             UnitPrice = 1m,
