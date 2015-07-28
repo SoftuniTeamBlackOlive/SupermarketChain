@@ -21,6 +21,10 @@
             var dbVendors = new Repository<Vendor>();
             dbVendors.Add(new Vendor { Name = "Zagorka" });
             dbVendors.SaveChanges();
+
+            // Testing unit of work
+            var data = new SupermarketChainData();
+            Console.WriteLine(data.Vendors.All().FirstOrDefault(v => v.Name == "Zagorka").Name);
         }
     }
 }
