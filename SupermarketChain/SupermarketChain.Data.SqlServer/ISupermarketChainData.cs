@@ -10,5 +10,7 @@
         IRepository<Vendor> Vendors { get; }
 
         IRepository<Measure> Measures { get; }
+
+        void SaveChanges();
     }
 }

@@ -3,8 +3,8 @@
     using System;
     using System.Linq;
 
-    using SupermarketChain.Data.SqlServer;
     using SupermarketChain.Model;
+    using SupermarketChain.Data.SqlServer;
     using SupermarketChain.Data.SqlServer.Repositories;
 
     class Program

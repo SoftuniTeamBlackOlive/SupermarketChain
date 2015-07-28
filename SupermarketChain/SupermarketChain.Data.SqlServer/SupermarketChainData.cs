@@ -46,6 +46,11 @@
             }
         }
 
+        public void SaveChanges()
+        {
+            this.context.SaveChanges();
+        }
+
         private IRepository<T> GetRepository<T>()
             where T : class
         {
