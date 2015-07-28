@@ -22,7 +22,10 @@ namespace SupermarketChain.Data.SqlServer
 
         public virtual IDbSet<Measure> Measures { get; set; }
 
+        public virtual IDbSet<Supermarket> Supermarkets { get; set; }
 
+        public virtual IDbSet<Sale> Sales { get; set; }
+        
         public new void SaveChanges()
         {
             base.SaveChanges();

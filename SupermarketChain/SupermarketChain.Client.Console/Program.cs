@@ -25,6 +25,7 @@
             // Testing unit of work
             var data = new SupermarketChainData();
             Console.WriteLine(data.Vendors.All().FirstOrDefault(v => v.Name == "Zagorka").Name);
+            Console.WriteLine(data.Supermarkets.All().FirstOrDefault(v => v.Name == "Supermarket “Bourgas – Plaza”").Name);
         }
     }
 }

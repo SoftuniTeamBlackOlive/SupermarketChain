@@ -12,7 +12,7 @@
 
         public int VendorId { get; set; }
 
-        public Measure Measure { get; set; }
+        public virtual Measure Measure { get; set; }
 
         public int MeasureId { get; set; }
     }

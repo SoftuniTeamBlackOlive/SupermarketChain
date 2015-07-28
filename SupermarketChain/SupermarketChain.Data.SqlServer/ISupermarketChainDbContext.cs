@@ -13,6 +13,10 @@
 
         IDbSet<Measure> Measures { get; set; }
 
+        IDbSet<Supermarket> Supermarkets { get; set; }
+
+        IDbSet<Sale> Sales { get; set; }
+
         void SaveChanges();
 
         IDbSet<TEntity> Set<TEntity>() where TEntity : class;

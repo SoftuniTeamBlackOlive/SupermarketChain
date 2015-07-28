@@ -46,6 +46,22 @@
             }
         }
 
+        public IRepository<Supermarket> Supermarkets
+        {
+            get
+            {
+                return this.GetRepository<Supermarket>();
+            }
+        }
+
+        public IRepository<Sale> Sales
+        {
+            get
+            {
+                return this.GetRepository<Sale>();
+            }
+        }
+
         public void SaveChanges()
         {
             this.context.SaveChanges();

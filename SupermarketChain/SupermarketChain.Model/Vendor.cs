@@ -17,8 +17,8 @@
 
         public virtual ICollection<Product> Products
         {
-            get { return products; }
-            set { products = value; }
+            get { return this.products; }
+            set { this.products = value; }
         }
     }
 }
