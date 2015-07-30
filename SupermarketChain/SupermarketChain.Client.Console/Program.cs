@@ -1,4 +1,6 @@
-﻿namespace SupermarketChain.Client.Console
+﻿using System.Runtime.InteropServices;
+
+namespace SupermarketChain.Client.Console
 {
     using System;
     using System.Globalization;
@@ -12,12 +14,11 @@
     {
         public static void Main(string[] args)
         {
+            
             // Testing SupermarketChainDbContext
             var dbContext = new SupermarketChainDbContext();
-            Console.WriteLine(dbContext.Vendors.FirstOrDefault(v => v.Name == "Kamenitza").Name);
-            Console.WriteLine(dbContext.Vendors.FirstOrDefault(v => v.Name == "Kamenitza").Name);
-            Console.WriteLine(dbContext.Vendors.Find(2).Name);
-            
+            Console.WriteLine(dbContext.Vendors.Count());
+
             // Testing repository
             var dbVendors = new Repository<Vendor>();
             dbVendors.Add(new Vendor { Name = "Zagorka" });
@@ -29,6 +30,7 @@
             Console.WriteLine(data.Supermarkets.All().FirstOrDefault(v => v.Name == "Supermarket “Bourgas – Plaza”").Name);
 
             PDFReportGenerator.GeneratePdfReport(DateTime.ParseExact("20-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture), DateTime.ParseExact("23-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture), data);
+            JsonReportsToMongoDB.Export();
         }
     }
 }

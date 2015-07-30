@@ -28,6 +28,7 @@ namespace SupermarketChain.Data.SqlServer.Migrations
 
         private void SeedInitialDataForTesting(SupermarketChainDbContext context)
         {
+            Console.WriteLine( "asd");
             // TODO: Add more seed data for testing!
             string[] vendors = { "Kamenitza", "Nestle Sofia Corp.", "Zagorka Corp.", "Targovishte Bottling Company Ltd." };
 
@@ -40,6 +41,7 @@ namespace SupermarketChain.Data.SqlServer.Migrations
                         Name = vendor
                     });                
             }
+            context.SaveChanges();
 
             string[] measures = { "liters", "pieces", "kg" };
 
@@ -92,7 +94,9 @@ namespace SupermarketChain.Data.SqlServer.Migrations
                 context
                     .Products
                     .Add(product);
+
             }
+            context.SaveChanges();
 
             Supermarket[] supermarkets =
                 {
@@ -120,11 +124,13 @@ namespace SupermarketChain.Data.SqlServer.Migrations
                     .Supermarkets
                     .Add(supermarket);
             }
+            context.SaveChanges();
 
             Sale[] sales =
                 {
                     new Sale
                         {
+                            Product = context.Products.Find(3),
                             ProductName = "Beer “Beck’s”",
                             Date = DateTime.ParseExact("22-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture),
                             Quantity = 18,
@@ -134,6 +140,7 @@ namespace SupermarketChain.Data.SqlServer.Migrations
                         },
                     new Sale
                         {
+                            Product = context.Products.First(p=>p.Name=="Beer “Zagorka”"),
                             ProductName = "Beer “Zagorka”",
                             Date = DateTime.ParseExact("22-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture),
                             Quantity = 90,
@@ -143,6 +150,7 @@ namespace SupermarketChain.Data.SqlServer.Migrations
                         },
                     new Sale
                         {
+                            Product = context.Products.First(p=>p.Name=="Chocolate “Milka”"),
                             ProductName = "Chocolate “Milka”",
                             Date = DateTime.ParseExact("22-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture),
                             Quantity = 14,
@@ -152,6 +160,7 @@ namespace SupermarketChain.Data.SqlServer.Migrations
                         },
                     new Sale
                         {
+                            Product = context.Products.First(p=>p.Name=="Vodka “Targovishte”"),
                             ProductName = "Vodka “Targovishte”",
                             Date = DateTime.ParseExact("22-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture),
                             Quantity = 12,
@@ -161,6 +170,7 @@ namespace SupermarketChain.Data.SqlServer.Migrations
                         },
                     new Sale
                         {
+                            Product = context.Products.First(p=>p.Name=="Beer “Beck’s”"),
                             ProductName = "Beer “Beck’s”",
                             Date = DateTime.ParseExact("22-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture),
                             Quantity = 60,
@@ -170,6 +180,7 @@ namespace SupermarketChain.Data.SqlServer.Migrations
                         },
                     new Sale
                         {
+                            Product = context.Products.First(p=>p.Name=="Beer “Zagorka”"),
                             ProductName = "Beer “Zagorka”",
                             Date = DateTime.ParseExact("22-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture),
                             Quantity = 230,
@@ -179,6 +190,7 @@ namespace SupermarketChain.Data.SqlServer.Migrations
                         },
                     new Sale
                         {
+                            Product = context.Products.First(p=>p.Name=="Beer “Zagorka”"),
                             ProductName = "Beer “Zagorka”",
                             Date = DateTime.ParseExact("20-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture),
                             Quantity = 37,
@@ -188,13 +200,14 @@ namespace SupermarketChain.Data.SqlServer.Migrations
                         },
                     new Sale
                         {
+                            Product = context.Products.First(p=>p.Name=="Vodka “Targovishte”"),
                             ProductName = "Vodka “Targovishte”",
                             Date = DateTime.ParseExact("20-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture),
                             Quantity = 14,
                             UnitPrice = 8.5m,
                             Sum = 119m,
                             SupermarketName = "Supermarket “Bourgas – Plaza”" 
-                        },
+                        }
                 };
 
             foreach (var sale in sales)
@@ -202,9 +215,9 @@ namespace SupermarketChain.Data.SqlServer.Migrations
                 context
                     .Sales
                     .Add(sale);
+                context.SaveChanges();
             }
-
-            context.SaveChanges();
+         
         }
     }
 }
