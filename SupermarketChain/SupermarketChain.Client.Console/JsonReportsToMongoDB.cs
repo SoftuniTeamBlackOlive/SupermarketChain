@@ -25,39 +25,46 @@ namespace SupermarketChain.Client.Console
             var db = client.GetDatabase("SuperMarketChainReports");
             var collection = db.GetCollection<BsonDocument>("SalesByProductReports");
             var products = context.Sales.Where(s => s.Date <= endDate && s.Date >= startDate)
-                .GroupBy(s => s.Product.Name)
+                .GroupBy(s => s.ProductId)
                 .Select(
                     p => new
                     {
-                        productName=p.Key,
-                        productId=p.Select(s=>s.Product.Id),
-                        vendorName=p.Select(s=>s.Product.Vendor.Name),
-                        totalQuantity=p.Sum(s=>s.Quantity),
-                        totalIncome=p.Sum(s=>s.Sum)
+                        productName = p.Select(s => s.Product.Name),
+                        productId = p.Key,
+                        vendorName = p.Select(s => s.Product.Vendor.Name),
+                        totalQuantity = p.Sum(s => s.Quantity),
+                        totalIncome = p.Sum(s => s.Sum)
                     });
-            foreach (var product in products)
+
+            if (!products.Any())
             {
-                var document = new BsonDocument
+                Console.WriteLine("There are no sales during that period {0} - {1}", startDate, endDate);
+            }
+            else
+            {
+                foreach (var product in products)
+                {
+                    var document = new BsonDocument
                     {
-                        {"product-id", product.productId.First()},
-                        {"product-name", product.productName},
-                        {"vendor-name", product.vendorName.First()},
-                        {"total-quantity-sold",product.totalQuantity },
-                        {"total-incomes", product.totalIncome.ToString()}
+                        { "product-id", product.productId },
+                        { "product-name", product.productName.First() },
+                        { "vendor-name", product.vendorName.First() },
+                        { "total-quantity-sold", product.totalQuantity },
+                        { "total-incomes", product.totalIncome.ToString() }
                     };
-                //Upload to the DB
-                collection.InsertOneAsync(document).Wait();
-                //Export Data
-                SaveToJson(document, product.productId.First());
+                    // Upload to the DB
+                    collection.InsertOneAsync(document).Wait();
+                    // Export Data
+                    SaveToJson(document, product.productId);
+                }                
             }
         }
 
         private static DateTime EnterEndDate(DateTime startDate)
         {
-            bool validDate;
             Console.WriteLine("Enter an end date after {0}  :", startDate.ToString("dd/MM/yyyy"));
             var endDateString = Console.ReadLine();
-            validDate = ValidateDate(endDateString);
+            bool validDate = ValidateDate(endDateString);
             var endDate = DateTime.MinValue;
             while (!validDate || startDate > endDate)
             {
