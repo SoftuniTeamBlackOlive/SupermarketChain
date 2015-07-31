@@ -33,7 +33,8 @@ namespace SupermarketChain.Client.Console
             //PDFReportGenerator.GeneratePdfReport(DateTime.ParseExact("20-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture), DateTime.ParseExact("23-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture), data);
             //JsonReportsToMongoDB.Export();
             //XMLReportSalesByVendor.GenerateReport(DateTime.ParseExact("20-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture), DateTime.ParseExact("23-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture), dbContext);
-            ImportExpensesFromXML.Import();
+            //ImportExpensesFromXML.Import();
+            ExportDataToMySQL.Export();
         }
     }
 }

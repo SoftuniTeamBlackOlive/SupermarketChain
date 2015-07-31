@@ -47,6 +47,9 @@
     <Reference Include="MongoDB.Driver.Core">
       <HintPath>..\packages\MongoDB.Driver.Core.2.0.1\lib\net45\MongoDB.Driver.Core.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\packages\MySql.Data.6.9.7\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="NReco.PdfGenerator">
       <HintPath>..\packages\NReco.PdfGenerator.1.1.7.0\lib\net20\NReco.PdfGenerator.dll</HintPath>
       <Private>True</Private>
@@ -62,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExportDataToMySQL.cs" />
     <Compile Include="ImportExpensesFromXML.cs" />
     <Compile Include="JsonReportsToMongoDB.cs" />
     <Compile Include="PDFReportGenerator.cs">
