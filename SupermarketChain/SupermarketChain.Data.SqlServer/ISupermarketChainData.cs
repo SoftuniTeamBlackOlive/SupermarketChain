@@ -13,6 +13,8 @@
 
         IRepository<Supermarket> Supermarkets { get; }
 
+        IRepository<Expense> Expenses { get; }
+
         IRepository<Sale> Sales { get; }
 
         void SaveChanges();

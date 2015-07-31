@@ -6,9 +6,12 @@
     {
         private ICollection<Product> products;
 
+        private ICollection<Expense> expenses;
+
         public Vendor()
         {
             this.products = new HashSet<Product>();
+            this.expenses = new HashSet<Expense>();
         }
         
         public int Id { get; set; }
@@ -19,6 +22,11 @@
         {
             get { return this.products; }
             set { this.products = value; }
+        }
+        public virtual ICollection<Expense> Expenses
+        {
+            get { return this.expenses; }
+            set { this.expenses = value; }
         }
     }
 }

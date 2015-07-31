@@ -19,6 +19,8 @@ namespace SupermarketChain.Data.SqlServer
 
         public virtual IDbSet<Product> Products { get; set; }
 
+        public virtual IDbSet<Expense> Expenses { get; set; }
+
         public virtual IDbSet<Vendor> Vendors { get; set; }
 
         public virtual IDbSet<Measure> Measures { get; set; }

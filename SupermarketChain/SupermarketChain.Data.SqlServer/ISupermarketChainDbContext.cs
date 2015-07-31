@@ -15,6 +15,8 @@
 
         IDbSet<Supermarket> Supermarkets { get; set; }
 
+        IDbSet<Expense> Expenses { get; set; }
+
         IDbSet<Sale> Sales { get; set; }
 
         void SaveChanges();

@@ -61,6 +61,13 @@
                 return this.GetRepository<Sale>();
             }
         }
+        public IRepository<Expense> Expenses
+        {
+            get
+            {
+                return this.GetRepository<Expense>();
+            }
+        }
 
         public void SaveChanges()
         {

@@ -17,7 +17,7 @@ namespace SupermarketChain.Client.Console
             
             //// Testing SupermarketChainDbContext
             var dbContext = new SupermarketChainDbContext();
-            //Console.WriteLine(dbContext.Vendors.First(v => v.Name == "Kamenitza").Name);
+            Console.WriteLine(dbContext.Vendors.First(v => v.Name == "Kamenitza").Name);
             //Console.WriteLine(dbContext.Vendors.Count());
 
             //// Testing repository
@@ -31,8 +31,9 @@ namespace SupermarketChain.Client.Console
             //Console.WriteLine(data.Supermarkets.All().FirstOrDefault(v => v.Name == "Supermarket “Bourgas – Plaza”").Name);
 
             //PDFReportGenerator.GeneratePdfReport(DateTime.ParseExact("20-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture), DateTime.ParseExact("23-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture), data);
-            JsonReportsToMongoDB.Export();
+            //JsonReportsToMongoDB.Export();
             //XMLReportSalesByVendor.GenerateReport(DateTime.ParseExact("20-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture), DateTime.ParseExact("23-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture), dbContext);
+            ImportExpensesFromXML.Import();
         }
     }
 }
