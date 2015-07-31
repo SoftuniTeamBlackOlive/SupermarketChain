@@ -94,7 +94,7 @@
             {
                 decimal subTotalSum = 0;
                 var currentDateSales = data.Sales.All().Where(s => s.Date == currentDate)
-                        .Include(s => s.Product);
+                        .Include(s => s.Product).Include(s => s.Product.Measure).Include(s => s.Supermarket.Name);
                 
                 if (currentDateSales.Any())
                 {
@@ -110,10 +110,10 @@
                     foreach (var sale in currentDateSales)
                     {
                         htmlContent.AppendLine(@"<tr class=""ProductList"">")
-                            .AppendLine("<td>" + sale.ProductName + "</td>")
-                            .AppendLine("<td>" + sale.Quantity + " " + sale.MeasureName + "</td>")
+                            .AppendLine("<td>" + sale.Product.Name + "</td>")
+                            .AppendLine("<td>" + sale.Quantity + " " + sale.Product.Measure.Name + "</td>")
                             .AppendLine("<td>" + sale.UnitPrice + "</td>")
-                            .AppendLine("<td>" + sale.SupermarketName + "</td>")
+                            .AppendLine("<td>" + sale.Supermarket.Name + "</td>")
                             .AppendLine("<td>" + sale.Sum + "</td>");
 
                         subTotalSum += sale.Sum;

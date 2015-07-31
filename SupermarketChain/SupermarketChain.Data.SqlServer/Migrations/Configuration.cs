@@ -28,8 +28,6 @@ namespace SupermarketChain.Data.SqlServer.Migrations
 
         private void SeedInitialDataForTesting(SupermarketChainDbContext context)
         {
-            Console.WriteLine( "asd");
-            // TODO: Add more seed data for testing!
             string[] vendors = { "Kamenitza", "Nestle Sofia Corp.", "Zagorka Corp.", "Targovishte Bottling Company Ltd." };
 
             foreach (var vendor in vendors)
@@ -41,6 +39,7 @@ namespace SupermarketChain.Data.SqlServer.Migrations
                         Name = vendor
                     });                
             }
+
             context.SaveChanges();
 
             string[] measures = { "liters", "pieces", "kg" };
@@ -96,6 +95,7 @@ namespace SupermarketChain.Data.SqlServer.Migrations
                     .Add(product);
 
             }
+
             context.SaveChanges();
 
             Supermarket[] supermarkets =
@@ -124,89 +124,82 @@ namespace SupermarketChain.Data.SqlServer.Migrations
                     .Supermarkets
                     .Add(supermarket);
             }
+
             context.SaveChanges();
 
             Sale[] sales =
                 {
                     new Sale
                         {
-                            Product = context.Products.Find(3),
-                            ProductName = "Beer “Beck’s”",
+                            ProductId = context.Products.First(p => p.Name == "Beer “Beck’s”").Id,
                             Date = DateTime.ParseExact("22-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture),
                             Quantity = 18,
                             UnitPrice = 1.2m,
                             Sum = 21.60m,
-                            SupermarketName = "Supermarket “Kaspichan – Center”" 
+                            SupermarketId = context.Supermarkets.First(s => s.Name == "Supermarket “Kaspichan – Center”").Id,
                         },
                     new Sale
                         {
-                            Product = context.Products.First(p=>p.Name=="Beer “Zagorka”"),
-                            ProductName = "Beer “Zagorka”",
+                            ProductId = context.Products.First(p => p.Name == "Beer “Zagorka”").Id,
                             Date = DateTime.ParseExact("22-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture),
                             Quantity = 90,
                             UnitPrice = 0.92m,
                             Sum = 82.80m,
-                            SupermarketName = "Supermarket “Kaspichan – Center”" 
+                            SupermarketId = context.Supermarkets.First(s => s.Name == "Supermarket “Kaspichan – Center”").Id,
                         },
                     new Sale
                         {
-                            Product = context.Products.First(p=>p.Name=="Chocolate “Milka”"),
-                            ProductName = "Chocolate “Milka”",
+                            ProductId = context.Products.First(p => p.Name == "Chocolate “Milka”").Id,
                             Date = DateTime.ParseExact("22-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture),
                             Quantity = 14,
                             UnitPrice = 2.9m,
                             Sum = 40.60m,
-                            SupermarketName = "Supermarket “Kaspichan – Center”" 
+                            SupermarketId = context.Supermarkets.First(s => s.Name == "Supermarket “Kaspichan – Center”").Id,
                         },
                     new Sale
                         {
-                            Product = context.Products.First(p=>p.Name=="Vodka “Targovishte”"),
-                            ProductName = "Vodka “Targovishte”",
+                            ProductId = context.Products.First(p => p.Name == "Vodka “Targovishte”").Id,
                             Date = DateTime.ParseExact("22-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture),
                             Quantity = 12,
                             UnitPrice = 7.7m,
                             Sum = 92.40m,
-                            SupermarketName = "Supermarket “Plovdiv – Stolipinovo”" 
+                            SupermarketId = context.Supermarkets.First(s => s.Name == "Supermarket “Plovdiv – Stolipinovo”").Id,
                         },
                     new Sale
                         {
-                            Product = context.Products.First(p=>p.Name=="Beer “Beck’s”"),
-                            ProductName = "Beer “Beck’s”",
+                            ProductId = context.Products.First(p => p.Name == "Beer “Beck’s”").Id,
                             Date = DateTime.ParseExact("22-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture),
                             Quantity = 60,
                             UnitPrice = 1.05m,
                             Sum = 63m,
-                            SupermarketName = "Supermarket “Plovdiv – Stolipinovo”" 
+                            SupermarketId = context.Supermarkets.First(s => s.Name == "Supermarket “Plovdiv – Stolipinovo”").Id,
                         },
                     new Sale
                         {
-                            Product = context.Products.First(p=>p.Name=="Beer “Zagorka”"),
-                            ProductName = "Beer “Zagorka”",
+                            ProductId = context.Products.First(p => p.Name == "Beer “Zagorka”").Id,
                             Date = DateTime.ParseExact("22-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture),
                             Quantity = 230,
                             UnitPrice = 0.88m,
                             Sum = 202.40m,
-                            SupermarketName = "Supermarket “Plovdiv – Stolipinovo”" 
+                            SupermarketId = context.Supermarkets.First(s => s.Name == "Supermarket “Plovdiv – Stolipinovo”").Id,
                         },
                     new Sale
                         {
-                            Product = context.Products.First(p=>p.Name=="Beer “Zagorka”"),
-                            ProductName = "Beer “Zagorka”",
+                            ProductId = context.Products.First(p => p.Name == "Beer “Zagorka”").Id,
                             Date = DateTime.ParseExact("20-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture),
                             Quantity = 37,
                             UnitPrice = 1m,
                             Sum = 37m,
-                            SupermarketName = "Supermarket “Bourgas – Plaza”" 
+                            SupermarketId = context.Supermarkets.First(s => s.Name == "Supermarket “Bourgas – Plaza”").Id,
                         },
                     new Sale
                         {
-                            Product = context.Products.First(p=>p.Name=="Vodka “Targovishte”"),
-                            ProductName = "Vodka “Targovishte”",
+                            ProductId = context.Products.First(p => p.Name == "Vodka “Targovishte”").Id,
                             Date = DateTime.ParseExact("20-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture),
                             Quantity = 14,
                             UnitPrice = 8.5m,
                             Sum = 119m,
-                            SupermarketName = "Supermarket “Bourgas – Plaza”" 
+                            SupermarketId = context.Supermarkets.First(s => s.Name == "Supermarket “Bourgas – Plaza”").Id,
                         }
                 };
 
@@ -215,8 +208,9 @@ namespace SupermarketChain.Data.SqlServer.Migrations
                 context
                     .Sales
                     .Add(sale);
-                context.SaveChanges();
             }
+
+            context.SaveChanges();
          
         }
     }

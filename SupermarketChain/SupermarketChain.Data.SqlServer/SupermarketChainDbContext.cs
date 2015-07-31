@@ -4,6 +4,7 @@ namespace SupermarketChain.Data.SqlServer
     using System.Linq;
 
     using System.Data.Entity;
+    using System.Data.Entity.ModelConfiguration.Conventions;
 
     using SupermarketChain.Model;
     using SupermarketChain.Data.SqlServer.Migrations;
@@ -34,6 +35,12 @@ namespace SupermarketChain.Data.SqlServer
         public new IDbSet<TEntity> Set<TEntity>() where TEntity : class
         {
             return base.Set<TEntity>();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }
     }
 }

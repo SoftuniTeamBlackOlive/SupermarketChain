@@ -25,7 +25,7 @@ namespace SupermarketChain.Client.Console
             var db = client.GetDatabase("SuperMarketChainReports");
             var collection = db.GetCollection<BsonDocument>("SalesByProductReports");
             var products = context.Sales.Where(s => s.Date <= endDate && s.Date >= startDate)
-                .GroupBy(s => s.ProductName)
+                .GroupBy(s => s.Product.Name)
                 .Select(
                     p => new
                     {

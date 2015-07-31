@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sales>
+  <sale vendor="Targovishte Bottling Company Ltd.">
+    <summary date="20-Jul-2014" total-sum="119.00" />
+    <summary date="22-Jul-2014" total-sum="133.00" />
+  </sale>
+  <sale vendor="Zagorka Corp.">
+    <summary date="20-Jul-2014" total-sum="37.00" />
+    <summary date="22-Jul-2014" total-sum="369.80" />
+  </sale>
+</sales>
