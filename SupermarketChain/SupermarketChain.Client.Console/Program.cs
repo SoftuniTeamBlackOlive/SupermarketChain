@@ -16,7 +16,7 @@ namespace SupermarketChain.Client.Console
         {
             
             //// Testing SupermarketChainDbContext
-            //var dbContext = new SupermarketChainDbContext();
+            var dbContext = new SupermarketChainDbContext();
             //Console.WriteLine(dbContext.Vendors.First(v => v.Name == "Kamenitza").Name);
             //Console.WriteLine(dbContext.Vendors.Count());
 
@@ -32,7 +32,7 @@ namespace SupermarketChain.Client.Console
 
             //PDFReportGenerator.GeneratePdfReport(DateTime.ParseExact("20-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture), DateTime.ParseExact("23-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture), data);
             //JsonReportsToMongoDB.Export();
-             XMLReportSalesByVendor.GenerateReport(DateTime.ParseExact("20-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture), DateTime.ParseExact("23-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture), data);
+             XMLReportSalesByVendor.GenerateReport(DateTime.ParseExact("20-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture), DateTime.ParseExact("23-Jul-2014", "dd-MMM-yyyy", CultureInfo.InvariantCulture), dbContext);
         }
     }
 }

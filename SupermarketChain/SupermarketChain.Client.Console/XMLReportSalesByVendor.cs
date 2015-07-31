@@ -1,24 +1,15 @@
 ﻿namespace SupermarketChain.Client.Console
 {
     using System;
-    using System.Collections.Generic;
-    using System.Data.Entity;
     using System.Linq;
-    using System.Text.RegularExpressions;
-
-    using SupermarketChain.Data.SqlServer;
     using System.Xml.Linq;
 
-    using MongoDB.Bson.Serialization.Serializers;
-
-    using SupermarketChain.Model;
+    using SupermarketChain.Data.SqlServer;
 
     public abstract class XMLReportSalesByVendor
     {
-        public static void GenerateReport(DateTime startDate, DateTime endDate, SupermarketChainData data)
+        public static void GenerateReport(DateTime startDate, DateTime endDate, SupermarketChainDbContext context)
         {
-            var context = new SupermarketChainDbContext();
-
             var salesByVendors = 
                 context.Sales.Where(s => s.Date >= startDate && s.Date < endDate)
                 .GroupBy(s => new { Vendor = s.Product.Vendor.Name, Date = s.Date})
